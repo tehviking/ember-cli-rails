@@ -1,4 +1,10 @@
-require "ember-cli/engine" if defined?(Rails)
+if defined?(Rails)
+  if Rails.version.to_i >= 3
+    require "ember-cli/engine"
+  else
+    require "ember-cli/rails_2_plugin"
+  end
+end
 
 module EmberCLI
   extend self

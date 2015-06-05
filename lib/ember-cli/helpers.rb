@@ -33,7 +33,7 @@ module EmberCLI
     def default_environment
       if Rails.env.test?
         "test"
-      elsif Rails.env.production? || !rails_config_for(:consider_all_requests_local)
+      elsif Rails.env.production? || !rails_config_for(:consider_all_requests_local) { true }
         "production"
       else
         "development"
